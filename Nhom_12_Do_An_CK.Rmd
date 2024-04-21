@@ -1,0 +1,1156 @@
+---
+title: "ĐỒ ÁN CUỐI KỲ"
+author: "NHÓM 12"
+date: "2023-12-15"
+Môn: Lập trình R
+Thành viên nhóm: " Phan Khải Huyền - 21133041 Nguyễn Quang Nhất Linh - 21133050 Nguyễn
+  Thị Thùy Linh - 21133051 Nguyễn Tấn Sương - 21133078"
+GV: Trần Trọng Bình
+---
+
+```         
+REPORT
+NHÓM 12
+```
+
+### LỜI CẢM ƠN
+
+Để có thể hoàn thành đồ án một cách hoàn chỉnh, bên cạnh sự nỗ lực cố gắng của các thành viên trong nhóm còn có sự hướng dẫn nhiệt tình của thầy, sự động viên ủng hộ của gia đình và bạn bè trong suốt thời gian học tập nghiên cứu và thực hiện đồ án. Trước hết, nhóm em xin gửi lời cảm ơn chân thành nhất đến thầy Trần Trọng Bình, vô cùng bận bịu nhưng vẫn luôn giành thời gian để giải đáp những thắc mắc cũng như đã hết lòng giúp đỡ, chỉ bảo, tạo mọi điều kiện tốt nhất cho nhóm em hoàn thành đồ án này. Bên cạnh đó, cũng xin chân thành bày tỏ lòng biết ơn đến toàn thể quý thầy cô trong Khoa Công Nghệ Thông Tin, Trường Đại học Sư phạm Kỹ thuật TP.HCM đã tận tình truyền đạt những kiến thức quý báu cũng như tạo mọi điều kiện thuận lợi nhất cho nhóm em trong suốt quá trình học tập và cho đến khi thực hiện đồ án. Với kiến thức và trình độ lý luận còn hạn chế, đồ án này không thể tránh khỏi những điều thiếu sót. Vì vậy nhóm em rất mong nhận được những ý kiến đóng góp, nhận xét và sự chỉ bảo của cô để nhóm em có thể học hỏi hêm những kiến thức và kinh nghiệm cho bản thân, phục vụ cho quá trình học tập sau này. Xin chân thành cảm ơn!
+
+
+### 1. TÓM TẮT (ABSTRACT)
+
+Theo tình hình thế giới hiện nay, con người đang phải đối diện với các nguy hiểm từ các căn bệnh phức tạp kèm theo đó là tỷ lệ tử vong cao và đột quỵ là một trong số chúng. Theo thống kê, số lượng bệnh nhân đột quỵ trẻ ngày càng gia tăng. Hiện nay bệnh nhân đột quỵ dưới 40 tuổi đã chiếm 5% trong số bệnh =nhân đột quỵ. Theo Tổ chức Y tế thế giới, mỗi năm có khoảng 6,5 triệu người tử vong do đột quỵ. Đây cũng là nguyên nhân gây tử vong cao thứ hai trên thế giới, chiếm khoảng 11% tổng số ca tử vong. Trung bình có 1 ca tử vong do đột quỵ sau mỗi 6 giây và cứ 6 người thì có 1 người bị đột quỵ. Nhận thấy tính nghiêm trọng của căn bệnh này với nhu cầu giúp ích trong việc phòng ngừa ngăn chặn bệnh đột quỵ, chúng em quyết định chọn đề tài "Phân tích nguyên nhân và dự đoán đột quỵ".
+
+### 2. GIỚI THIỆU (INTRODUCE)
+
+Để hiểu rõ được nguyên nhân dẫn đến đột quỵ, từ đó đưa ra những nhận xét và đánh giá cho dự đoán này, nhóm chúng em đã đặt ra những vấn đề nghiên cứu sau:
+
+-   Các yếu tố ảnh hưởng đến tỷ lệ đột quỵ và tỷ lệ ảnh hưởng của chúng:
+
++   Biến giải thích (X): 11 biến trong bộ dữ liệu (trừ biến id).
+
++   Biến kết quả (Y): stroke.
+
++   Biểu đồ sử dụng (dự tính): Biểu đồ khảm (mosaic plots), bản đồ nhiệt tương quan (correlation heatmap), biểu đồ phân tán (scatter plot).
+
++   Phương pháp sử dụng: sử dụng biểu đồ trực quan, thu thập dữ liệu, xử lí dữ liệu, thống kê.
+
++   Ý nghĩa: xác định đượng mối quan hệ giữa các biến X và Y từ đó đưa ra kết luận.
+
+-   Thống kê độ tuổi thường mắc đột quỵ:
+
++   Biến giải thích (X): stroke, age.
+
++   Biến kết quả (Y): một biến tạm lưu độ tuổi có nguy cơ đột quỵ cao nhất.
+
++   Biểu đồ sử dụng (dự tính): Biểu đồ tần suất (histogram), biểu đồ hộp (boxplot), bản đồ nhiệt tương quan (correlation heatmap), biểu đồ phân tán (scatter plot).
+
++   Phương pháp sử dụng: Thống kê suy luận (Inferential statistics) - là bao gồm các phương pháp ước lượng các đặc trưng của tổng thể, phân tích mối liên hệ giữa các hiện tượng nghiên cứu, dự đoán hoặc ra
+quyết định trên cơ sở thu thập thông tin từ kết quả quan sát mẫu.
+
++   Ý nghĩa: Từ thống kê này ta có thể xác định độ tuổi có tương quan lớn nhẩt với đột quỵ.
+
+-   Xây dựng chương trình dự đoán nguy cơ đột quỵ:
+
++   Biến giải thích (X): 11 biến trong bộ dữ liệu (trừ biến id).
+
++   Biến kết quả (Y): 1 biến chứa tỷ lệ đột quỵ.
+
++   Biểu đồ sử dụng: Biểu đồ tần suất(histogram), biểu đồ hộp(boxplot), bản đồ nhiệt tương quan(correlation heatmap), biểu đồ phân tán (scatter plot), Line Graph(biểu đồ đường).
+
++   Phương pháp sử dụng: Logistic Regression (hồi quy logistic), Random Forest, Decision Tree ...
+
++   Ý nghĩa: sau khi thực hiện sẽ xuất ra kết quả là 1 tỷ lệ đột quỵ dựa trên các dữ liệu đầu vào.
+
+### 3. DỮ LIỆU (DATA)
+
+Dữ liệu được lấy trên Kaggle có URL:
+<https://www.kaggle.com/code/joshuaswords/predicting-a-stroke-shap-lime-explainer-eli5/data>.
+Dữ liệu có 5120 dòng và 12 cột Dữ liệu được mô tả như sau : 
+- id: định danh duy nhất
+- gender: "Nam", "Nữ" hoặc "Khác" 
+- age: tuổi của bệnh nhân 
+- hypertension: 0 nếu bệnh nhân không bị tăng huyết áp, 1 nếu bệnh nhân bị tăng huyết áp 
+- heart_disease: 0 nếu bệnh nhân không mắc bất kỳ bệnh tim nào, 1 nếu bệnh nhân có bệnh tim 
+- ever_married : đã từng kết hôn "Không" hoặc "Có" 
+- work_type: "children", "Govt_jov", "Never_worked", "Tư nhân" hoặc "Tự kinh doanh" 
+- Residence_type: "Nông thôn" hoặc "Thành thị"
+- avg_glucose_level: mức đường trung bình trong máu 
+- BMI: chỉ số khối cơ thể 
+- smoking_status: "trước đây đã hút thuốc", "chưa bao giờ hút thuốc", "hút thuốc"hoặc "Không xác định"
+("Không xác định" trong smoking_status có nghĩa là thông tin không có sẵn cho bệnh nhân này) 
+- stroke: 1 nếu bệnh nhân bị đột quỵ hoặc 0 nếu không
+
+### 4. TRỰC QUAN HÓA DỮ LIỆU (DATA VISULIZATION)
+
+-   Bộ dữ liệu này được lấy từ trang kaggle chứa dữ liệu các bệnh nhân có bị đột quỵ hoặc là không bị đột quỵ và các thông tin liên quan như giới tính, tuổi tác, các bệnh nền và tình trạng hôn nhân, có hút
+thuốc không,... Mỗi hàng trong dữ liệu cung cấp thông tin liên quan về bệnh nhân.
+
+-   Bộ dữ liệu gồm 5110 hàng và 12 cột, trong đó gồm 11 cột chứa biến có ích cho việc phân tích và cột id là không cần thiết.
+
+
+# Đọc dữ liệu và lưu trữ trong data, hàm str() được sử dụng để xem cấu trúc của đối tượng đó.
+```{r}
+
+data <- read.csv("./healthcare-dataset-stroke-data.csv", header = T)
+str(data)
+
+```
+# Thư viện
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(ggplot2)
+library(dplyr)
+library(GGally)
+library(rpart)
+library(tidyr)
+library(rpart.plot)
+library(skimr)
+library(gridExtra)
+library(tidyverse)
+library(fastDummies)
+library(ggmosaic)
+library(caret)
+library(readr)
+library(magrittr)
+library(tibble)
+library(e1071)
+library(DALEX)
+library(ROSE)
+library(randomForest)
+
+```
+
+
+# In tập dữ liệu
+
+```{r}
+
+data
+
+```
+
+# Hàng và cột của tập dữ liệu
+
+```{r}
+
+nrow(data)
+ncol(data)
+
+```
+
+# Làm sạch dữ liệu
+
+```{r}
+#Bỏ đi cột ID vì không cần thiết
+stroke = subset(data, select = -c(id))
+
+#Chuyển dữ liệu cột bmi sang dạng số để có thể tính toán 
+suppressWarnings(stroke$bmi <- as.numeric(as.character(stroke$bmi)))
+
+# Kiểm tra lại số null trong bộ dữ liệu
+colSums(is.na(stroke))
+
+```
+
+# Thay thế giá trị null của cột bmi bằng giá trị trung bình của các giá trị thực của cột
+
+```{r}
+
+bmi.median = median(stroke$bmi, na.rm = TRUE)
+stroke$bmi <- stroke$bmi %>% replace_na(bmi.median)
+
+```
+
+# Kiểm tra cột gender
+
+```{r}
+
+as.data.frame(table(stroke$gender))
+
+```
+
+# Do có một giá trị 'other' nên tiến hành xoá nó khỏi cột gender
+
+```{r}
+
+stroke = stroke[!stroke$gender == 'Other',]
+
+```
+
+# Kiểm tra cột work
+
+```{r}
+
+as.data.frame(table(stroke$work_type))
+
+```
+
+# Kiểm tra cột Residence_type
+
+```{r}
+
+as.data.frame(table(stroke$Residence_type))
+
+```
+
+# Kiểm tra cột ever_married
+
+```{r}
+
+as.data.frame(table(stroke$ever_married))
+
+```
+
+# Kiểm tra cột smoking_status
+
+```{r}
+
+as.data.frame(table(stroke$smoking_status))
+
+```
+
+# Vì cột smoking có các giá trị unknown nhưng để tiện phân tích ảnh hưởng của hút thuốc đối với tỷ lệ đột quỵ nên ta tiến hành thay thế các giá trị unknown thành giá trị có số lượng nhiều nhất là never smoked
+
+```{r}
+
+stroke <- stroke %>% mutate(smoking_status = replace(smoking_status, smoking_status == "Unknown", "never smoked"))
+#kiểm tra lại bộ dữ liệu
+head(stroke)
+
+```
+
+# Check lại giá trị na trong dữ liệu
+
+```{r}
+
+colSums(is.na(stroke))
+
+```
+
+# Tạo một bản sao của tập dữ liệu
+
+```{r}
+
+stroke1 <- stroke
+stroke1
+
+```
+
+# Chuyển các biến kiểu phân loại vào factor
+
+```{r}
+
+stroke$stroke <- as.factor(stroke$stroke)
+stroke$hypertension <- as.factor(stroke$hypertension)
+stroke$heart_disease <- as.factor(stroke$heart_disease)
+stroke$ever_married <- as.factor(stroke$ever_married)
+stroke$Residence_type <- as.factor(stroke$Residence_type)
+
+```
+
+# Đặt các biến đa cấp thành biến giả
+
+```{r}
+
+stroke_dummy <- dummy_cols(stroke,select_columns = c("gender","work_type","smoking_status"),remove_first_dummy = TRUE, remove_selected_columns = TRUE)
+stroke_dummy %>% head()
+
+```
+
+# *** Khai phá dữ liệu (EDA)
+
+# Xem xét phân phối của từng biến riêng lẻ
+
+```{r}
+library(ggplot2)
+library(gridExtra)
+
+# Thiết lập màu chung cho tất cả biểu đồ
+my_color <- "#33FFFF"
+
+# Tạo biểu đồ cho từng biến phân loại
+p1 <- ggplot(data = stroke) + geom_bar(mapping = aes(x = gender, fill = "#33FFFF")) +
+      scale_fill_manual(values = "#33FFFF") + theme_minimal()
+
+p2 <- ggplot(data = stroke) + geom_bar(mapping = aes(x = hypertension, fill = "#33FFFF")) +
+      scale_fill_manual(values = "#33FFFF") + theme_minimal()
+
+p3 <- ggplot(data = stroke) + geom_bar(mapping = aes(x = heart_disease, fill = "#33FFFF")) +
+      scale_fill_manual(values = "#33FFFF") + theme_minimal()
+
+p4 <- ggplot(data = stroke) + geom_bar(mapping = aes(x = ever_married, fill = "#33FFFF")) +
+      scale_fill_manual(values = my_color) + theme_minimal()
+
+# Sắp xếp biểu đồ vào một bảng có 2 cột
+grid.arrange(p1, p2, p3, p4, ncol = 2)
+
+```
+
+===> Dựa vào biểu dồ trên, có thể thấy phần lớn trường hợp bệnh nhân không mắc bệnh tim và huyết áp, người đã kết hôn và nữ giới chiếm đa số trong tập dữ liệu.
+
+```{r}
+
+p5 <-ggplot(data = stroke) +geom_bar(mapping = aes(x = work_type))
+p6 <-ggplot(data = stroke) +geom_bar(mapping = aes(x = Residence_type))
+p7 <-ggplot(data = stroke) +geom_bar(mapping = aes(x = smoking_status))
+p8 <-ggplot(data = stroke) +geom_bar(mapping = aes(x = stroke))
+grid.arrange(p5,p6,p7,p8, ncol= 2)
+
+```
+
+===> Hầu hết các trường hợp trong tập dữ liệu bệnh nhân không bị đột quỵ, công nhân tư nhân và không hút thuốc chiếm đa số, có sự chênh lệch thấp giữa nông thôn và thành thị.
+
+# Xem xét phân phối của các biến liên tục
+
+```{r}
+
+c1 <- ggplot(data = stroke) + geom_histogram(mapping = aes(x = age), binwidth = 0.5, col = '#33CCCC')
+c2 <- ggplot(data = stroke) + geom_histogram(mapping = aes(x = avg_glucose_level), binwidth = 0.5, col = '#33CCCC')
+c3 <- ggplot(data = stroke) + geom_histogram(mapping = aes(x = bmi), binwidth = 0.5, col = '#33CCCC')
+grid.arrange(c1,c2,c3, ncol= 2)
+
+```
+
+===> Nhận xét: Tuổi tác có xu hướng lệch phải nhẹ nhưng vẫn phân bố khá đều hơn lượng đường và chỉ số bmi đang có xu hướng lệch trái rõ rệt 
+
+
+# Tiếp theo ta sẽ kiểm tra mối quan hệ giữa các biến đầu vào và biến kết quả của chúng thông qua boxplot và từ đó đưa ra nhận xét "CÁC YẾU TỐ ẢNH HƯỞNG ĐẾN TỶ LỆ ĐỘT QUỴ VÀ ẢNH HƯỞNG CỦA CHÚNG".
+
+# Đột quỵ với tuổi tác
+
+```{r}
+
+ggplot(data = stroke, mapping = aes(x = stroke, y = age)) +geom_boxplot()+labs(title='Stroke on Age')
+
+```
+
+# Đột quỵ với lượng đường
+
+```{r}
+
+ggplot(data = stroke, mapping = aes(x = stroke, y = avg_glucose_level)) +geom_boxplot()+labs(title='Stroke on Glucose Level')
+
+```
+
+# Đột quỵ với chỉ số cơ thể
+
+```{r}
+
+ggplot(data = stroke, mapping = aes(x = stroke, y = bmi)) +geom_boxplot()+labs(title='Stroke on bmi')
+
+```
+
+===>Từ những biểu đồ trên, có thể kết luận được những người bị đột quỵ có độ tuổi, lượng đường và chỉ số cơ thể cao hơn so với người không mắc bệnh.
+
+# Để xem mối quan hệ của các biến phân loại đối với đột quỵ ta dùng biểu đồ khảm để có cái nhìn trực quan nhất
+
+# Đột quỵ với loại hình việc làm
+
+```{r}
+
+ggplot(data = stroke) +geom_mosaic(aes(x = product(stroke,work_type), fill=work_type)) + labs(title='Stroke on Work Type')
+
+```
+
+# Đột quỵ với việc hút thuốc
+
+```{r}
+
+ggplot(data = stroke) +geom_mosaic(aes(x = product(stroke,smoking_status), fill=smoking_status)) + labs(title='Stroke on smoking_status')
+
+```
+
+# Đột quỵ với huyết áp
+
+```{r}
+
+ggplot(data = stroke) +geom_mosaic(aes(x = product(stroke,hypertension), fill=hypertension)) + labs(title='Stroke on hypertension')
+
+```
+
+# Đột quỵ với việc kết hôn
+
+```{r}
+
+ggplot(data = stroke) +geom_mosaic(aes(x = product(stroke,ever_married), fill=ever_married)) + labs(title='Stroke on ever_married')
+
+```
+
+# Đột quỵ với bệnh tim
+
+```{r}
+
+ggplot(data = stroke) +geom_mosaic(aes(x = product(stroke,heart_disease), fill=heart_disease)) + labs(title='Stroke on heart_disease')
+
+```
+
+===> Kết luận: Loại hình công việc self-employed có tỷ lệ đột quỵ cao hơn,người mắc bệnh tim ,có bệnh huyết áp,đã kết hôn có nguy cơ đột quỵ cao hơn người không mắc bệnh và chưa kết hôn, thuốc lá dường như không ảnh hưởng nhiều đến đột quỵ vì tỷ lệ người đã từng hút thuốc cao hơn cả người chưa hút thuốc và đang hút thuốc.
+
+# Để có cái nhìn cụ thể hơn về mối tương quan giữa các biến định lượng đầu vào với nhau và giữa các biến đầu vào với đột quỵ và tỷ lệ tương quan của từng biến, ta dùng biểu đồ nhiệt để hiển thị.
+
+```{r}
+# Chuyển dữ liệu trong stroke1 nông thôn thành 0, thành thị là 1
+stroke1$Residence_type[stroke1$Residence_type == "Urban"] <- 0
+stroke1$Residence_type[stroke1$Residence_type == "Rural"] <- 1
+
+# Chuyển dữ liệu trong stroke1 đã kết hôn thành 0, đã kết hôn thành 1
+stroke1$ever_married[stroke1$ever_married == "Yes"] <- 1
+stroke1$ever_married[stroke1$ever_married == "No"] <- 0
+
+# Chuyển dữ liệu trong stroke1 nam: 0, nữ: 1
+stroke1$gender[stroke1$gender == "Male"] <- 0
+stroke1$gender[stroke1$gender == "Female"] <- 1
+
+suppressWarnings(stroke1$Residence_type <- as.numeric(as.character(stroke1$Residence_type)))
+suppressWarnings(stroke1$ever_married <- as.numeric(as.character(stroke1$ever_married)))
+suppressWarnings(stroke1$gender <- as.numeric(as.character(stroke1$gender)))
+
+# Tạo bảng đồ tương quan giữa các biến định lượng
+stroke.quant = subset(stroke1, select = -c(work_type, smoking_status))
+stroke.cor = round(cor(stroke.quant),2)
+ggplot(data = reshape2::melt(stroke.cor),aes(x=Var1, y=Var2, fill=value)) + geom_tile() +  scale_fill_gradient2(low = "blue", high = "red", mid = "white", midpoint = 0, limit = c(-1,1), space = "Lab", name="Hệ số tương quan") + geom_text(aes(Var2, Var1, label = value), color = "black", size = 4) + theme(axis.text.x = element_text(angle = 30))
+
+```
+
+===> Kết luận rằng: có thể thấy từ biểu đồ nhiệt, hầu hết các biến không tương quan với nhau, mối tương quan đáng chú ý duy nhất là giữa tuổi tác và tình trạng hôn nhân. Trong số tất cả các đặc điểm, tuổi tác có hệ số tương quan lớn nhất với đột quỵ.Ta chú ý đến sự tương quan của các biến đối với đột quỵ (stroke) thì độ tuổi có hệ số tương quan lớn nhất (0.25) và residence_type có hệ số tương quan nhỏ nhất(-0.02).
+
+# Đối với các biến liên tục, chúng ta cũng có thể sử dụng biểu đồ phân tán để hiển thị mối quan hệ của chúng.
+
+```{r}
+
+cont.plot <- ggplot(data = stroke, aes(x= age, y = bmi, color = stroke))+geom_point()
+cont.plot
+
+```
+
+===> Kết luận: Có thể thấy, bệnh nhân đột quỵ thường xuất hiện ở người lớn tuổi và người có chỉ số bmi cao.
+
+# Xác định khoảng tuổi có nguy cơ đột quỵ cao nhất
+
+```{r}
+
+#Trung bình mẫu 
+strokeAge.mean <-mean(stroke$age[stroke$stroke==1])
+strokeAge.mean
+
+```
+
+
+```{r}
+
+#Độ lệch chuẩn
+strokeAge.std <- sd(stroke$age[stroke$stroke==1])
+#Độ tin cậy
+strokeAge.dtc <-0.95
+#Dùng độ tin cậy 95% ta có a/2 =0.475 Tra bảng z=> Za/2(trị số tới hạn)= 1,96
+#Sai số chuẩn
+strokeAge.ssc <-strokeAge.std / (sqrt(sum(stroke$stroke==1)))
+#Phạm vi sai số
+pvss <- strokeAge.ssc * 1.96
+pvss
+
+```
+
+===> Có thể xem độ tuổi trung bình của các bệnh nhân mắc đột quỵ sấp xỉ 68 tuổi và qua xử lý ta có được khoảng tin cậy là [68-1.58;68+1.58]. Vậy người thuộc khoảng trên có nguy cơ đột quỵ cao nhất.
+
+*** Nhận xét: Qua các biểu đồ trực quan hoá, chúng ta sẽ có cái nhìn khách quan về bộ dữ liệu, thông qua đó ta xác định được biến nào có ý nghĩa cao nhất đối với đề tài và biến nào là không cần thiết. không những thế, các biểu đồ còn giúp nhóm đưa ra được kết luận và xác định được hướng đi để trả lời các nghiên cứu tiếp theo, vì dữ liệu rất rộng nếu không trực quan bằng biểu đồ ta không thể tập trung vào các biến có ý nghĩa nhất trong việc giải quyết bài toán.
+
+### 5.MÔ HÌNH HÓA DỮ LIỆU (DATA MODELING)
+
+# *** Mô hình Hồi quy Logarit:
+
+#Phân chia tập dữ liệu thành 2 tập dữ liệu : tập train(70%), tập test(30%)
+
+```{r}
+Training <- createDataPartition(y = stroke_dummy$stroke, p = 0.7, list = FALSE)
+train <- stroke_dummy[Training,]
+test <- stroke_dummy[-Training,]
+```
+
+```{r}
+str(train)
+```
+
+```{r}
+str(test)
+```
+
+Để thực hiện hồi quy logistic, ta bắt đầu với phương trình hồi quy tuyến tính : 
+```              g(stroke)=B0 + B(Age) + B(hypertension) +....                  ```
+Trong đó: g() là hàm liên kết được thiết lập dử dụng 2 thứ xác suất thành công (P) và xác suất thất bại(1-p).
+
+Vì xác suất luôn dương nên ta đặt phương trình tuyến tính với hàm mũ, vì hàm mũ luôn dương Xác suất thành công:
+
+```             p = e^(B0 + B(Age) + B(hypertension) +….)                       ```
+
+Để xác suất nhỏ hơn 1, chia p cho 1 số lớn hơn p
+===> p=e^(B0 +B(Age) + B(hypertension) +....)/(1+e^(B0 + B(Age) + B(hypertension) +....)) (1)
+
+-   Đặt q là xác suất thất bại: 
+  q=1-p=1-e^(B0 + B(Age) + B(hypertension) +....)/(1+e^(B0 + B(Age) + B(hypertension) +....)) (2)
+
+-   Chia (1) cho (2): p/(1-p)= e^(B0 + B(Age) + B(hypertension) +....)
+
+-   Log 2 vế ===> log(p/(1-p))= B0 + B(Age) + B(hypertension) +....
+
+===> vậy log(p/(1-p)) là hàm liên kết
+
+Tiến hành thực hiện hồi quy thông qua hàm hồi quy trong R - hàm gml(), dùng family=binomial(link = "logit")(thuộc họ nhị thức của các mô hình tuyến tính tổng quát) và điều này làm cho hàm gml() thực hiện logistic regression với dữ liệu truyền vào là tập training,
+
+Đặt Formula= "stroke" để chỉ định rằng ta muốn sử dụng tất cả biến trong dữ liệu truyền vào để dự đoán cho biến stroke.
+
+```{r}
+#Xây dựng một mô hình hồi quy logistic bằng hàm 'glm'
+model <- glm(stroke ~.,family=binomial(link = "logit"), data=train)
+#Hiển thị
+summary(model)
+```
+
+# p-value của biến 'age','work_type_Self-employed','avg_glucose_level' và 'hypertension1' có ý nghĩa theo định số lần lượt là: \<0.001,\<0.1,\<0.05 và cuối cùng là \<0.1.
+
+Trong đó 'age','hypertension1','avg_glucose_level' có ý nghĩa thống kê cáo nhất do p-value <0.05
+-   Đặt các biến trong dữ liệu là x, ta có: stroke=Estimate(Intercept) + Estimate(x)*value(x). 
+Trong đó value(x)=1 hoặc 0. 
+Đây là phương trình dự đoán tỷ lệ đột quỵ dựa trên các tham số đầu vào.
+
+#Tính độ phù hợp của hàm dùng R-square
+
+```{r}
+Rs<-1-(model$deviance/model$null.deviance)
+cat("R-square: ",Rs)
+
+```
+
+# Dự đoán trên tập test
+
+```{r}
+# Dự đoán trên tập test
+model.prob <- predict(model, test, type = "response") #Sử dụng hàm nhầm lẫn để xem mức độ phù hợp của hàm logistic, đặt kết quả dự đoán là 0.5,nếu model.prob>0.5 thì bệnh nhân bị đột quỵ
+
+confusionMatrix(data = as.factor(as.numeric(model.prob>0.5)), reference = as.factor(test$stroke))
+# confusionMatrix: Tạo ma trận nhầm lẫn để đánh giá hiệu suất của mô hình
+# data: Dự đoán của mô hình, đã chuyển đổi thành biến factor (0 hoặc 1) bằng ngưỡng 0.5
+#        - as.numeric(model.prob > 0.5): Chuyển đổi xác suất dự đoán thành biến nhị phân (0 hoặc 1)
+#        - as.factor(...): Chuyển đổi thành biến factor để sử dụng trong confusionMatrix
+# reference: Giá trị thực tế của biến phản ứng từ tập test, đã chuyển đổi thành biến factor
+#        - as.factor(testing$stroke): Chuyển đổi biến phản ứng thành biến factor
+# confusionMatrix(...) sẽ so sánh dự đoán và giá trị thực tế, và tạo ra ma trận nhầm lẫn.
+```
+
+Vì Accuracy = 0.95 nên độ chính xác của hàm khá cao. Vì bộ dữ liệu có số
+bệnh nhân không bị đột quỵ nhiều hơn bệnh nhân bị đột quy rất nhiều nên
+chương trình có khả năng tự nhận định phần lớn bệnh nhân sẽ không mắc
+bệnh và từ đó dẫn đến kết quả dự đoán đa số là 0.
+
+# *** Mô hình Random Forest:
+
+Thư viện:
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+install.packages("caret")
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("ROSE")
+library(ROSE)
+install.packages("corrplot")
+library(caret)
+install.packages("randomForest")
+library(randomForest)
+set.seed(101)
+```
+
+
+
+```{r}
+#load
+data_RF <- read.csv("./healthcare-dataset-stroke-data.csv")
+#see structure
+str(data_RF)
+#kiểm tra giá trị rỗng
+paste0("null data0: ", is.null(data_RF))
+#Kiểm tra số lượng đột quỵ
+paste0("Amount of Strokes: ", sum(data_RF$stroke))
+```
+
+```{r}
+prop.table(table(data_RF$stroke))
+cat("\n Data is a lot unbalanced. Results will not be good if this is not taken it into account (that was confirmed during some tests).
+Data will be balanced after train/test split.")
+#Điều này nhấn mạnh tầm quan trọng của việc xử lý dữ liệu không cân bằng trong quá trình phân tích và mô hình hóa.
+```
+#CLEAN DATA
+```{r}
+table(factor(data_RF$gender))
+
+cat("\nTable of Strokes (1)")
+table(data_RF$gender, data_RF$stroke)
+
+# chuyển đổi biến "gender" thành dạng numeric bằng cách sử dụng một vòng lặp và câu lệnh điều kiện
+
+cat("\nGender to numeric")
+
+data_RF$gender <- ifelse(is.na(data_RF$gender), 0.5,
+                      ifelse(data_RF$gender == "Male", 1,
+                             ifelse(data_RF$gender == "Female", 0, NA)))
+data_RF$gender <- as.numeric(data_RF$gender)
+print(head(data_RF))
+```
+
+
+
+```{r}
+table(factor(data_RF$ever_married))
+cat("\nTable of Strokes")
+table(data_RF$ever_married, data_RF$stroke)
+cat("Kết quả cho thấy, đã từng kết hôn thì bị Đột quỵ còn tệ hơn nhiều, có lẽ chỉ vì nó tương ứng với một người lớn tuổi hơn :)\n")
+
+cat("\nEver_married to binary")
+data_RF$ever_married <- ifelse(data_RF$ever_married == "Yes", 1, 0)
+```
+
+
+
+```{r}
+#work_type is more difficult.... must transform each type to binary... start with children
+table(factor(data_RF$work_type))
+cat("\nTable of Strokes (1)")
+table(data_RF$work_type, data_RF$stroke)
+
+cat("\nWork_type to ... Let's separate in children and never worked (which could also be very young people) - make a new variable 'young' to them\n")
+cat("The remaing are separated in new dummy variables, wither work for others or self-employed (which seems more stressful)")
+
+data_RF$work_type <- as.character(data_RF$work_type)
+for (i in 1:length(data_RF$id)) {
+    if (data_RF$work_type[i] == "children" || data_RF$work_type[i] == "Never_worked" ) {
+        data_RF$young[i] <- 1
+    }
+    else {
+        data_RF$young[i] <- 0
+    }      
+}
+
+#data$work_type <- as.character(data$work_type)
+for (i in 1:length(data_RF$id)) {
+    if (data_RF$work_type[i] == "Govt_job" || data_RF$work_type[i] == "Private Self" ) { 
+        data_RF$work_others[i] <- 1
+    }
+    else {
+        data_RF$work_others[i] <- 0
+    }      
+}
+
+for (i in 1:length(data_RF$id)) {
+    if (data_RF$work_type[i] == "Self-employed" ) { 
+        data_RF$work_self[i] <- 1
+    }
+    else {
+        data_RF$work_self[i] <- 0
+    }      
+}
+print(head(data_RF))
+```
+
+
+
+```{r}
+table(factor(data_RF$Residence_type))
+
+cat("\nTable of Strokes (1)")
+table(data_RF$Residence_type, data_RF$stroke)
+
+cat("\nResidence_type to binary")
+data_RF$Residence_type <- ifelse(data_RF$Residence_type == "Urban", 1, 0) 
+```
+
+
+
+```{r}
+cat("\nbmi to numeric")
+data_RF$bmi <- as.numeric(as.character(data_RF$bmi))
+cat("\nreplace NA with mean value\n")
+data_RF$bmi[is.na(data_RF$bmi)] <- mean(data_RF$bmi, na.rm = TRUE)
+summary(data_RF$bmi)
+```
+
+
+
+
+```{r}
+#tạo bảng tần số (frequency table) đếm số lần xuất hiện của mỗi giá trị trong biến  "smoking_status" trong tập dữ liệu
+table(factor(data_RF$smoking_status))
+
+cat("\nTable of Strokes (1)")
+table(data_RF$smoking_status, data_RF$stroke)
+
+cat("\nSmoking_status to ....never unknown what is unkonown... There are several unknown, so what to do?..")
+
+
+cat("\nAssume unknown is somewhere between never smoked and formerly smoked... give them 10..")
+data_RF$smoking_status <- as.character(data_RF$smoking_status)
+#"Unknown", thì giá trị mới được gán là 10.
+for (i in 1:length(data_RF$id)) {
+    if (data_RF$smoking_status[i] == "Unknown") {
+        data_RF$smoking_status[i] <- 10
+    } 
+#never smoked is 0
+    else if (data_RF$smoking_status[i] == "never smoked") { 
+        data_RF$smoking_status[i] <- 0
+    } 
+#formerly smoked is 20
+    else if (data_RF$smoking_status[i] == "formerly smoked") {
+        data_RF$smoking_status[i] <- 30
+    } 
+#smokes is 30
+    else if (data_RF$smoking_status[i] == "smokes") {
+        data_RF$smoking_status[i] <- 50
+    } 
+}
+data_RF$smoking_status <- as.numeric(data_RF$smoking_status)
+```
+
+```{r}
+#confirm changes
+length(data_RF$id)
+for (i in 1:length(data_RF$id)) {
+    if (data_RF$stroke[i] >1) {
+        print("ngoai le")
+    } 
+}
+cat("drop unused columns")
+data_RF <- data_RF[ -c(1,7) ]
+str(data_RF)
+apply(data_RF, 2, function(x) any(is.na(x)))
+```
+
+
+
+```{r}
+library(corrplot)
+cat("check the correlations")
+correlations <- cor(data_RF, method = "pearson", use = "pairwise.complete.obs")
+corrplot(correlations, method = "circle")
+cat("Từ biểu đồ tương quan, Young có mối tương quan rõ rệt với các biến khác, và ever married cũng có một mối tương quan tương đối với một số biến khác")
+
+```
+
+
+```{r}
+library(dplyr)
+data_RF1 <- data_RF[,c("gender","age","hypertension","heart_disease","Residence_type","avg_glucose_level","bmi","smoking_status","work_others","work_self","stroke")]
+#after first run analysis, the focus was decided on this variables
+data_RF2 <- data_RF[,c("age","hypertension","avg_glucose_level","work_self","stroke")]
+
+#normalize data (excep stroke)
+data_scaled0 <- scale(data_RF2[,c(-5)])
+#Đoạn trên thực hiện chuẩn hóa dữ liệu trong biến "data2", trừ cột "stroke". Hàm scale() được sử dụng để chuẩn hóa dữ liệu bằng cách trừ giá trị trung bình và chia cho độ lệch chuẩn của mỗi biến. Cột "stroke" được loại bỏ bằng cách sử dụng [-5].
+data_scaled <- cbind(data_scaled0, data_RF$stroke)
+
+data_scaled <- as.data.frame(data_scaled) # chuyển đổi "data_scaled" thành một đối tượng kiểu "data.frame" để dễ dàng xử lý và hiển thị.
+data_scaled <- rename(data_scaled,"stroke" =  V5)
+print(head(data_scaled))
+```
+
+
+
+
+
+```{r}
+#Chuẩn bị dữ liệu để thực hiện phân chia tập huấn luyện và tập kiểm tra (train/test split) trong mô hình học máy sử dụng gói caret trong R.
+cat("Train Test split - using caret\n")
+data_RF2$hypertension <- as.factor(data_RF2$hypertension)
+data_RF2$work_self <- as.factor(data_RF2$work_self)
+data_RF2$stroke <- as.factor(data_RF2$stroke)
+```
+
+
+
+
+```{r}
+
+library(caret)
+#sử dụng gói caret trong R để thực hiện phân chia tập(train/test split).
+cat("Train Test split - using caret\n")
+trainIndex2 <- createDataPartition(data_RF2$stroke, p = 0.7, list = FALSE, times = 1)
+#Dòng này sử dụng hàm createDataPartition để tạo ra chỉ số (index) cho tập huấn luyện. Hàm này sẽ phân chia dữ liệu dựa trên biến "stroke" trong tập dữ liệu "data2" với tỷ lệ 0.7 (70% train và 30% test).
+dataTrain02 <- data_RF2[ trainIndex2,]
+dataTest2  <- data_RF2[-trainIndex2,]
+head(dataTrain02)
+str(dataTrain02)
+head(dataTest2)
+str(dataTest2)
+```
+
+
+
+
+```{r}
+#sử dụng gói ROSE trong R để cân bằng dữ liệu tập train bằng cách áp dụng phương pháp oversampling
+library(ROSE)
+cat("Balance (train) data by oversampling. From 5% to 30%\n")
+dataTrain2 <- ovun.sample(as.factor(stroke) ~ ., data = dataTrain02, method = 'over', p = 0.3)$data
+str(dataTrain2)
+#Phương pháp oversampling được xác định bởi method = 'over', và tỷ lệ oversampling là 0.3 (30%) được xác định bởi p = 0.3. Kết quả của hàm là tập dữ liệu đã được cân bằng, được gán cho biến dataTrain2.
+```
+
+
+
+
+
+```{r}
+library(randomForest)
+rf <- randomForest(stroke ~., data = dataTrain2, ntree = 1000, mtry = 1)
+# xây dựng mô hình Random Forest. ntree = 1000: Trong trường hợp này, mô hình sẽ sử dụng 1000 cây quyết định. 
+#mtry = 1: Trong trường hợp này, chỉ có 1 biến được chọn ngẫu nhiên để xem xét khi xây dựng mỗi cây quyết định.
+```
+
+
+```{r}
+rf
+summary(rf)
+```
+
+
+
+
+```{r}
+cat("Predict on Train")
+predRF_train <- predict(rf)
+#how they look
+length(predRF_train)
+head(predRF_train,50)
+
+cat("Predict on Test")
+predRF_test <- predict(rf, newdata = dataTest2)
+#how they look
+length(predRF_test)
+head(predRF_test,50)
+```
+
+
+
+```{r}
+#Confusion Matrix in Train
+a2 <- table(Predictions = predRF_train, TrueLabels = dataTrain2$stroke)
+fourfoldplot(a2, color = c("#CC6666", "#99CC99"),
+             conf.level = 0, margin = 1, main = "Confusion Matrix - Train")
+```
+
+
+
+
+```{r}
+set.seed(122)
+#Accuracy
+acc2 <- ( a2[2,2] + a2[1,1] ) / (length(dataTrain2$stroke))
+cat("Accuracy = ",acc2 )
+#F1
+Precision2 =  a2[2,2] / ( a2[2,2] + a2[2,1] )
+# in ra màn hình độ chính xác của mô hình dự đoán trên tập train bằng cách sử dụng hàm cat()
+cat("\nPrecision = ",Precision2 )
+#tính toán độ nhạy dự đoán dương tính (recall) của mô hình
+Recall2 =  a2[2,2] / ( a2[2,2] + a2[1,2] )
+cat("\nRecall = ",Recall2 )
+F1score2  = 2*(Recall2 * Precision2) / (Recall2 + Precision2)
+cat("\nF1 score = ",F1score2 )
+```
+
+
+
+
+
+```{r}
+#tính toán và hiển thị ma trận nhầm lẫn Confusion Matrix - TEST
+b2 <- table(Predictions = predRF_test, TrueLabels = dataTest2$stroke)
+fourfoldplot(b2, color = c("#CC6666", "#99CC99"),
+             conf.level = 0, margin = 1, main = "Confusion Matrix - Test")
+```
+
+
+
+
+```{r}
+set.seed(123)
+#Accuracy
+acc2 <- ( b2[2,2] + b2[1,1] ) / (length(dataTest2$stroke))
+cat("Accuracy = ",acc2 )
+#F1
+Precision2 =  b2[2,2] / ( b2[2,2] + b2[2,1] )
+#in ra màn hình độ chính xác của mô hình dự đoán trên tập TEST bằng cách sử dụng hàm cat(). Chuỗi "Accuracy = " được kết hợp với giá trị của acc2 để hiển thị đầy đủ thông tin.
+cat("\nPrecision = ",Precision2 )
+Recall2 =  b2[2,2] / ( b2[2,2] + b2[1,2] )
+cat("\nRecall = ",Recall2 )
+F1score2  = 2*(Recall2 * Precision2) / (Recall2 + Precision2)
+cat("\nF1 score = ",F1score2 )
+```
+
+
+
+
+```{r}
+cat("Dựa trên những kết quả này, mô hình có xu hướng overfitting trên tập dữ liệu huấn luyện, tức là nó hoạt động tốt hơn trên dữ liệu đã được huấn luyện mà không tổng quát hóa tốt cho dữ liệu mới. \n \n ")
+
+ cat("Điều này được thể hiện qua sự khác biệt đáng kể giữa các độ đo hiệu suất trên tập huấn luyện và tập kiểm tra. Để cải thiện hiệu suất của mô hình trên dữ liệu kiểm tra, có thể cân nhắc điều chỉnh tham số hoặc tăng cường dữ liệu huấn luyện để đảm bảo tính tổng quát hóa tốt hơn\n")
+
+```
+
+# *** Mô hình Decision Tree
+
+Thự viện:
+```{r}
+library(readr)
+library(dplyr)
+library(magrittr)
+library(tibble)
+library(skimr)
+library(rpart)
+library(rpart.plot)
+library(randomForest)
+library(caret)
+library(e1071)
+library(DALEX)
+```
+
+# Dữ liệu được đọc từ tệp CSV và lưu vào biến data
+
+```{r}
+data_DT <- read_csv("./healthcare-dataset-stroke-data.csv")  %>%
+  #Cột "hypertension" và "heart_disease" được chuyển đổi từ giá trị số thành giá trị "Yes" và "No" sử dụng hàm recode()
+        mutate(hypertension = recode(hypertension, `1` = "Yes", `0` = "No"),
+                heart_disease = recode(heart_disease, `1` = "Yes", `0` = "No")) %>%
+        mutate_if(is.character, as.factor) %>%
+  #Cột "id" được loại bỏ khỏi bảng dữ liệu sử dụng hàm select()
+        select(-id)
+
+glimpse(data_DT)
+```
+
+
+# Tạo một tóm tắt thống kê cho dữ liệu data, loại bỏ cột đầu tiên
+
+```{r}
+skim(data_DT[, -1])
+```
+
+
+#loại bỏ các hàng có giá trị thiếu (NA) từ bảng dữ liệu data
+```{r}
+data_DT <- na.omit(data_DT)
+data_DT
+```
+
+
+
+```{r}
+# Kiểm tra cột gender
+as.data.frame(table(data_DT$gender))
+```
+
+
+
+```{r}
+# Do chỉ có một giá trị 'other' nên tiến hành xoá nó khỏi cột gender để không ảnh hưởng việc phân tích
+data_DT = data_DT[!data_DT$gender == 'Other',]
+data_DT
+```
+
+
+
+# Vì cột smoking có các giá trị unknown nhưng để tiện phân tích ảnh hưởng của hút thuốc đối với tỷ lệ đột quỵ nên ta tiến hành thay thế các giá trị unknown thành giá trị có số lượng nhiều nhất là never smoked
+
+```{r}
+data_DT <- data_DT %>% mutate(smoking_status = replace(smoking_status, smoking_status == "Unknown", "never smoked"))
+#kiểm tra lại bộ dữ liệu
+head(data_DT)
+```
+
+
+
+```{r}
+# Check lại giá trị N/A trong dữ liệu
+colSums(is.na(data_DT))
+```
+```{r}
+#Chuyển dữ liệu cột bmi sang dạng số để có thể tính toán 
+suppressWarnings(data_DT$bmi <- as.numeric(as.character(data_DT$bmi)))
+```
+
+
+
+#xây dựng một mô hình cây quyết định (CART) cho dữ liệu data để dự đoán biến phân loại "stroke".
+
+```{r}
+tree <- rpart(stroke ~ ., data = data_DT, method = "class")
+tree
+```
+
+
+#Tạo một bộ dữ liệu cân bằng (balanced dataset) giữa các quan sát có stroke (biến mục tiêu bằng 1) và các quan sát không có stroke (biến mục tiêu bằng 0)
+
+```{r}
+set.seed(263)
+minority_obs <- data_DT %>% filter(stroke == 1)
+majority_obs <- data_DT %>% filter(stroke == 0) %>% sample_n(nrow(minority_obs))
+balanced_data <- bind_rows(minority_obs, majority_obs)
+```
+
+
+
+## Chia tập dữ liệu thành tập huấn luyện và tập kiểm thử (70% huấn luyện, 30% kiểm thử)
+
+```{r}
+set.seed(263)
+
+# Chia tập dữ liệu thành tập huấn luyện và tập kiểm thử (70% huấn luyện, 30% kiểm thử)
+training_samples <- as.vector(caret::createDataPartition(balanced_data$stroke, p = 0.7, list = FALSE))
+train_DT <- balanced_data[ training_samples, ]
+test_DT  <- balanced_data[-training_samples, ]
+
+# In ra số chiều của tập dữ liệu huấn luyện và kiểm thử
+print(dim(train_DT))
+print(dim(test_DT))
+```
+
+
+
+# xây dựng mô hình cây quyết định CART trên tập dữ liệu huấn luyện (train),
+
+```{r}
+
+cart <- rpart(stroke ~ ., data = train_DT, method = "class")
+rpart.plot(cart, extra = 4)
+```
+
+
+
+# tính toán ma trận nhầm lẫn (confusion matrix) dựa trên dự đoán từ mô hình cây quyết định cart trên tập kiểm thử (test)
+
+```{r}
+confusionMatrix(predict(cart, test_DT, type = "class"), as.factor(test_DT$stroke), positive = "1", mode = "prec_recall")
+```
+
+===> Mô hình có độ chính xác là 75.68% tương đối tốt , nhưng cũng cần xem xét các chỉ số khác như precision và recall.
+Độ chính xác cân bằng và các chỉ số khác nhau không chênh lệch đáng kể, có thể cho thấy mô hình tương đối ổn định trên cả hai lớp.
+Giá trị Kappa là 0.5135, có thể được hiểu là mức đồng thuận tương đối tốt giữa dự đoán của mô hình và thực tế.
+Tóm lại, mô hình cây quyết định có hiệu suất tốt nhưng cũng cần được đánh giá kỹ lưỡng dựa trên các yếu tố như precision và recall để hiểu rõ hơn về khả năng dự đoán trên từng lớp.
+
+
+### 6.THỰC NGHIỆM, KẾT QUẢ VÀ THẢO LUẬN
+
+Dựa vào kết quả phân tích của 3 mô hình Hồi quy Logarit, Decision Tree và Random Forest, ta thấy :
+
+      |----------------|-------------|---------------|------------|--------------|
+      |   Mô hình      |   Accuracy  |   Precision   |   Recall   |  F1 - score  |
+      |----------------|-------------|---------------|------------|--------------|
+      |Hồi quy Logarit |   0.9517    |  0.9517       |     1      |  0.9755      |
+      |----------------|-------------|---------------|------------|--------------|
+      |Decision Tree   |   0.7568    |  0.7568       |  0.7568    |  0.7568      |                                |----------------|-------------|---------------|------------|--------------|
+      |Random Forest   |   0.895     |  0.2193548    |  0.4594595 |  0.2969432   |
+      |----------------|-------------|---------------|------------|--------------|
+
+Nhận xét : Dùng mô hình Hồi quy Logarit là lựa chọn tốt nhất cho phân tích bệnh nhận bệnh đột quỵ.
+Thông qua các thông số như accuracy (độ chính xác), precision, recall và f1-score cao nhất trong các mô hình còn lại, và nó phù hợp với tập dữ liệu phân loại.
+
+
+
+### 7. KẾT LUẬN (CONCLUSIONS)
+- Các yếu tố ảnh hưởng đến tỷ lệ đột quỵ và tỷ lệ ảnh hưởng của chúng:
+. Bệnh nhân đột quỵ thường xuất hiện ở người lớn tuổi và người có chỉ số bmi cao.
+
+- Thống kê độ tuổi thường mắc đột quỵ:
+. Người thuộc khoảng [68-1.58;68+1.58] có nguy cơ đột quỵ cao nhất.
+
+- Xây dựng chương trình dự đoán nguy cơ đột quỵ:
+. Hồi quy Logarit 
+. Random Forest
+. Decision Tree
+
+==> Sử dụng mô hình Hồi quy Logarit là phù hợp với tập dữ liệu có biến phân loại và độ chính xác là 95%.
+
+
+### 8. PHỤ LỤC (APPENDICES)
+
+Tiêu chí đánh giá mô hình:
+
+ confusion matrix (ma trận nhầm lẫn): phân loại nhị phân
+          positive    negative
+positive    TP          FP
+negative    TN          TN
+
+Trong đó:
++ True Positive (TP): predict và actual đều là positive (mô hình phân loại đúng mẫu positive)
++ False Positive (FP): actual là positive nhưng predict lại là negative (mô hình bị nhầm lẫn mẫu positive là negative)
++ True Negative (TN): predict và actual đều là negative (mô hình phân loại đúng mẫu negative)
++ False Negative (FN): actual là negative nhưng predict là positive (mô hình bị nhầm lẫn mẫu negative là positive)
+
+- Accuracy (độ chính xác): tính tỉ lệ giữa số mẫu dự đoán đúng và tổng số mẫu trong tập dữ liệu.
+Công thức: 
+        Accuracy = (TP + TN) / (TP + TN + FP + FN)
+
+- Precision : là tỉ lệ số mẫu true positive trong số những mẫu được phân loại là positive (TP + FP). Thể hiện sự chuẩn xác của việc phát hiện các điểm Positive. Số này càng cao thì model nhận các điểm Positive càng chuẩn.
+Công thức : 
+        Precision = TP / (TP + FP)
+
+- Recall : là tỉ lệ số mẫu true positive trong số những điểm thực sự là positive (TP+FN). Thể hiện khả năng phát hiện tất cả các postivie, tỷ lệ này càng cao thì cho thấy khả năng bỏ sót các điểm Positive là thấp.
+Công thức: 
+        Recall = TP / (TP + FN)
+
+- F1 - score : F-1 score là trung bình điều hòa (harmonic mean) của precision và recall, có tầm quan trọng tương tự như với FNs và FPs. Là số dung hòa Recall và Precision giúp ta có căn cứ để lựa chọn model. F1 càng cao càng tốt.
+Công thức:
+        F1 = 2 * (Precision * Recall) / (Precision + Recall)
+        
+==> Precision cao đồng nghĩa độ chính xác của các mẫu đúng là cao. 
+Recall cao đồng nghĩa với việc bỏ sót các mẫu thực sự positive là thấp. 
+Một mô hình phân lớp tốt là mô hình có cả Precision và Recall đều cao, tức càng gần một càng tốt.
+F-1 score càng cao tương ứng precision và recall càng cao, mô hình phân loại càng tốt.
+
+### 9. ĐÓNG GÓP (CONTRIBUTIONS)
+
+Ngoài 3 mô hình dùng để phân tích dữ liệu bệnh nhân đột quỵ, chúng ta có thể sử dụng mô hình k-nearest neighbors.
+Từ đó, việc sử dụng nhiều mô hình sẽ giúp có cách đánh giá tối ưu hơn và phương pháp của mô hình nào tốt hơn cho việc dự đoán kết quả.
+
+### 10. KHAM KHẢO (REFERENCES)
+
+[1] Logistic Regression - Bài toán cơ bản trong Machine Learning. 
+https://viblo.asia/p/logistic-regression-bai-toan-co-ban-trong-machine-learning-924lJ4rzKPM
+
+[2] Decision Tree in R Programming.
+https://www.geeksforgeeks.org/decision-tree-in-r-programming/
+
+[3] Random Forest in R.
+https://www.r-bloggers.com/2021/04/random-forest-in-r/#google_vignette
+
+[4] R Squared in R - How to Calculate R2 in R?.
+https://www.digitalocean.com/community/tutorials/r-squared-in-r-programming
+
+[5] Trí tuệ nhân tạo: Các phương pháp đánh giá một mô hình phân loại.
+https://tapit.vn/cac-phuong-phap-danh-gia-mot-mo-hinh-phan-loai/?fbclid=IwAR1zQMzhFr3-DC3Q6DHOGHl0ancYKxC8YT5_IPeW8KT2PYMghCrfKZxYO78
+
+### 11. PEER ASSSESSMENT
+
+Nhận xét: Các nội dung nhóm đặt ra ở phần giới thiệu, hầu như trả lời được và vận dụng 3 mô hình cho việc phân tích từ đó đánh giá được mô hình nào sử dụng hiệu quả cho việc phân tích dữ liệu bệnh nhân bị đột quỵ.
+
+### BẢNG PHÂN CHIA CÔNG VIỆC:
+
+```         
+ __________________________________________________________________________________________________
+|         Họ tên        | MSSV     |             Công việc                     |    Hoàn thành     |
+|_______________________|__________|___________________________________________|___________________|
+|                       |          |  Triển khai mô hình Hồi quy Logarit       |                   |
+|Phan Khải Huyền        | 21133041 |  powerpoint                               |       100%        |
+|_______________________|__________|___________________________________________|___________________|
+|                       |          |  Triển khai mô hình Decision Tree         |                   |   
+|Nguyễn Quang Nhất Linh | 21133050 |  tổng hợp nội dung source                 |       100%        | |_______________________|__________|___________________________________________|___________________|
+|                       |          |  Trực quan hóa dữ liệu + EDA              |                   |   
+|Nguyễn Thị Thùy Linh   | 21133051 |  tổng hợp nội dung source                 |       100%        | |_______________________|__________|___________________________________________|___________________|
+|                       |          |  Triển khai mô hình Random Forest         |                   |   
+|Nguyễn Tấn Sương       | 21133078 |  powerpoint                               |       100%        |   
+|_______________________|__________|___________________________________________|___________________|
+
+
+
+
+
