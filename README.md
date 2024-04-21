@@ -1,9 +1,12 @@
+# Analyzing the causes and prediction of stroke
+
 EN: 
-ABSTRACT:
+
+### ABSTRACT:
 
 According to the current world situation, people are facing dangers from complex diseases accompanied by high mortality rates and stroke is one of them. According to statistics, the number of young stroke patients is increasing. Currently, stroke patients under 40 years old account for 5% of stroke patients. According to the World Health Organization, each year about 6.5 million people die from stroke. This is also the second highest cause of death in the world, accounting for about 11% of all deaths. On average, there is 1 death from stroke every 6 seconds and 1 in 6 people has a stroke. Realizing the seriousness of this disease and the need to help prevent stroke, we decided to choose the topic "Analyzing the causes and prediction of stroke".
 
-INTRODUCE:
+### INTRODUCE:
 To clearly understand the causes of stroke, and thereby provide comments and evaluations for this prediction, our team has posed the following research questions:
 
 - Factors affecting the rate of stroke and their impact rate:
@@ -43,7 +46,7 @@ Decide on the basis of collecting information from sample observation results.
 
 + Meaning: after execution, the result will be a stroke rate based on the input data.
 
-DATA: 
+### DATA: 
 
 Data pulled on Kaggle has URL:
 <https://www.kaggle.com/code/joshuaswords/predicting-a-stroke-shap-lime-explainer-eli5/data>.
@@ -61,6 +64,8 @@ The data has 5120 rows and 12 columns. The data is described as follows:
 - smoking_status: "previously smoked", "never smoked", "smoked" or "Unknown"
 ("Unknown" in smoking_status means information is not available for this patient)
 
+
+### Phân tích nguyên nhân và dự đoán đột quỵ
 
 
 VIE: 
